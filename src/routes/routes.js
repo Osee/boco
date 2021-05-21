@@ -1,4 +1,5 @@
-import HomePage from "../domain/homePage/homePage";
+import LandingPage from "../domain/homePage/landingPage";
+
 
 
 
@@ -7,7 +8,7 @@ const routes = [
     {
         path: "/",
         title: "home",
-        component : HomePage
+        component : LandingPage
     }
 ];
 

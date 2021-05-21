@@ -1,13 +1,9 @@
+import React from 'react';
 import { Box, Grid, makeStyles, Paper, CssBaseline, Button} from '@material-ui/core';
 import { DeviceUnknown, Facebook, WhatsApp } from '@material-ui/icons';
-import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import logo from '../../assets/image/bc.jpeg';
-import customerState from '../../atom/customerState';
-import { guidId } from '../../helpers/guidId';
+import logo from '../../../assets/image/bc.jpeg'
 
-
-const homePageStyle = makeStyles((theme) => ({
+const landingPageLayoutStyle = makeStyles((theme) => ({
     content: {
         width: 350,
         padding: theme.spacing(2),
@@ -70,29 +66,12 @@ const homePageStyle = makeStyles((theme) => ({
         
     }
 }))
-function HomePage(props) {
+
+function LandingPageLayout({
+    handleAnonymous
+}) {
     const _date = new Date()
-    const classes = homePageStyle();
-    const [customer, setCustomer] = useRecoilState(customerState)
-
-    const handleAnonymous = () => {
-        const data = {}
-        data["username"] = "anonymous"
-        data["created"] = _date.getTime()
-        data["id"] = guidId("boco")
-        setCustomer(s => ({
-            ...s,
-            currentCustomer : data
-        }))
-        window.localStorage.setItem("currentUser", JSON.stringify(data))
-    }
-
-    useEffect(() => {
-        if (customer.currentCustomer !== null) {
-            alert("Osée Botendju");
-        }
-    }, [customer])
-
+    const classes = landingPageLayoutStyle()
     return (
         <Grid className={classes.container}>
             <CssBaseline/>
@@ -125,7 +104,6 @@ function HomePage(props) {
                         fullWidth
                         variant="contained"
                         startIcon={<DeviceUnknown />}
-                        onClick={handleAnonymous}
                         
                     >
                         ANONYMOUS
@@ -139,4 +117,4 @@ function HomePage(props) {
     );
 }
 
-export default HomePage;
+export default LandingPageLayout;
