@@ -104,7 +104,6 @@ function LandingPageLayout({
                         fullWidth
                         variant="contained"
                         startIcon={<DeviceUnknown />}
-                        onClick={handleAnonymous}
                         
                     >
                         ANONYMOUS
