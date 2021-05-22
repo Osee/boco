@@ -19,10 +19,10 @@ function LandingPage(props) {
             ...s,
             currentCustomer : data
         }))
+        window.localStorage.setItem("anonymousUser", JSON.stringify(data))
     }
 
     useEffect(() => {
-
         if (currentCustomer !== null) {
             alert('Osée Botendju')
         }
