@@ -8,10 +8,7 @@ import LandingPageLayout from './Layout/landingPageLayout';
 function LandingPage(props) {
     
     const [customer, setCustomer] = useRecoilState(customerState)
-<<<<<<< HEAD
     const {currentCustomer} = customer
-=======
->>>>>>> 8c50ed31f91f55f0ed28dcd4e8470f0653863859
     const handleAnonymous = () => {
         const _date = new Date()
         const data = {}
@@ -22,20 +19,14 @@ function LandingPage(props) {
             ...s,
             currentCustomer : data
         }))
+        window.localStorage.setItem("anonymousUser", JSON.stringify(data))
     }
 
     useEffect(() => {
-<<<<<<< HEAD
         if (currentCustomer !== null) {
             alert('Osée Botendju')
         }
     }, [currentCustomer])
-=======
-        if (customer.currentCustomer !== null) {
-            alert('Osée Botendju')
-        }
-    }, [])
->>>>>>> 8c50ed31f91f55f0ed28dcd4e8470f0653863859
 
     return (
         <LandingPageLayout handleAnonymous={handleAnonymous}/>
